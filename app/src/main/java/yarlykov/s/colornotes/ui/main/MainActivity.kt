@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        
+
         // Чтобы поставить свой ToolBar нужно в стиле выбрать тему без Toolba'a
         setSupportActionBar(toolbar_main)
 
