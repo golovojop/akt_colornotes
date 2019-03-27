@@ -4,9 +4,15 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+androidExtensions {
+    experimental = true
+}
+
 android {
     compileSdkVersion 28
+
     defaultConfig {
+        multiDexEnabled true
         applicationId "yarlykov.s.colornotes"
         minSdkVersion 22
         targetSdkVersion 28
@@ -23,6 +29,17 @@ android {
 }
 
 dependencies {
+    def lifecycle_version = "1.1.1"
+    def support_version = "27.1.1"
+
+    // LiveData & ViewModel
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    // CoordinatorLayout & CardView
+    implementation "com.android.support:design:$support_version"
+    implementation "com.android.support:cardview-v7:$support_version"
+
+    implementation 'com.android.support:multidex:1.0.3'
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:28.0.0'
@@ -31,3 +48,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+
