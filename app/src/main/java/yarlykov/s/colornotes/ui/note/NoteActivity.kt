@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_note.*
 import yarlykov.s.colornotes.R
 import yarlykov.s.colornotes.data.entity.Note
+import yarlykov.s.colornotes.extensions.format
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -15,6 +16,7 @@ class NoteActivity : AppCompatActivity() {
     companion object {
 
         private val EXTRA_NOTE = NoteActivity::class.java.name + "extra.NOTE "
+        private const val DATE_TIME_FORMAT = "dd.MMM.yy HH:mm"
 
         fun getStartIntent(context: Context, note: Note?): Intent {
             val intent = Intent(context, NoteActivity::class.java).apply {
@@ -39,22 +41,10 @@ class NoteActivity : AppCompatActivity() {
         note = intent.getParcelableExtra(EXTRA_NOTE)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         supportActionBar?.title = note?.let {
-
+            it.lastChanged.format()
         }
 
-
-
-//            if (note != null) {
-//            SimpleDateFormat(
-//                DATE_TIME_FORMAT,
-//                Locale.getDefault()
-//            ).format(note!!.lastChanged)
-//        } else {
-//            getString(R.string.new_note_title)
-//        }
-
-        initView()
+//        initView();
     }
 }
