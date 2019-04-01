@@ -1,44 +1,52 @@
 package yarlykov.s.colornotes.data.model
 
 import yarlykov.s.colornotes.data.entity.Note
+import java.util.*
 
 object Repository {
 
     val notes = listOf(
         Note(
+            UUID.randomUUID().toString(),
             "Моя первая заметка",
             "Kotlin очень краткий, но при этом выразительный язык",
-            0xfff06292.toInt()
+            Note.Color.WHITE
         ),
         Note(
+            UUID.randomUUID().toString(),
             "Моя первая заметка",
             "Kotlin очень краткий, но при этом выразительный язык",
-            0xff9575cd.toInt()
+            Note.Color.WHITE
         ),
         Note(
+            UUID.randomUUID().toString(),
             "Моя первая заметка",
             "Kotlin очень краткий, но при этом выразительный язык",
-            0xff64b5f6.toInt()
+            Note.Color.WHITE
         ),
         Note(
+            UUID.randomUUID().toString(),
             "Моя первая заметка",
             "Kotlin очень краткий, но при этом выразительный язык",
-            0xff4db6ac.toInt()
+            Note.Color.WHITE
         ),
         Note(
+            UUID.randomUUID().toString(),
             "Моя первая заметка",
             "Kotlin очень краткий, но при этом выразительный язык",
-            0xffb2ff59.toInt()
+            Note.Color.WHITE
         ),
         Note(
+            UUID.randomUUID().toString(),
             "Моя первая заметка",
             "Kotlin очень краткий, но при этом выразительный язык",
-            0xffffeb3b.toInt()
+            Note.Color.WHITE
         ),
         Note(
+            UUID.randomUUID().toString(),
             "Моя первая заметка",
             "Kotlin очень краткий, но при этом выразительный язык",
-            0xffff6e40.toInt()
+            Note.Color.WHITE
         )
     )
 }
