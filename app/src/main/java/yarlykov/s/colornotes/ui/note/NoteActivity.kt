@@ -40,14 +40,20 @@ class NoteActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        supportActionBar?.title = if (note != null) {
-            SimpleDateFormat(
-                DATE_TIME_FORMAT,
-                Locale.getDefault()
-            ).format(note!!.lastChanged)
-        } else {
-            getString(R.string.new_note_title)
+        supportActionBar?.title = note?.let {
+
         }
+
+
+
+//            if (note != null) {
+//            SimpleDateFormat(
+//                DATE_TIME_FORMAT,
+//                Locale.getDefault()
+//            ).format(note!!.lastChanged)
+//        } else {
+//            getString(R.string.new_note_title)
+//        }
 
         initView()
     }
