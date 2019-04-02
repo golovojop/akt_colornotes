@@ -16,37 +16,37 @@ object Repository {
             UUID.randomUUID().toString(),
             "Моя первая заметка",
             "Kotlin очень краткий, но при этом выразительный язык",
-            Note.Color.WHITE
+            Note.Color.BLUE
         ),
         Note(
             UUID.randomUUID().toString(),
             "Моя первая заметка",
             "Kotlin очень краткий, но при этом выразительный язык",
-            Note.Color.WHITE
+            Note.Color.GREEN
         ),
         Note(
             UUID.randomUUID().toString(),
             "Моя первая заметка",
             "Kotlin очень краткий, но при этом выразительный язык",
-            Note.Color.WHITE
+            Note.Color.PINK
         ),
         Note(
             UUID.randomUUID().toString(),
             "Моя первая заметка",
             "Kotlin очень краткий, но при этом выразительный язык",
-            Note.Color.WHITE
+            Note.Color.RED
         ),
         Note(
             UUID.randomUUID().toString(),
             "Моя первая заметка",
             "Kotlin очень краткий, но при этом выразительный язык",
-            Note.Color.WHITE
+            Note.Color.VIOLET
         ),
         Note(
             UUID.randomUUID().toString(),
             "Моя первая заметка",
             "Kotlin очень краткий, но при этом выразительный язык",
-            Note.Color.WHITE
+            Note.Color.YELLOW
         )
     )
 }
