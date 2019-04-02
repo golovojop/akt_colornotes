@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ColorNotes</string>
-</resources>
+    <string name="app_title">GeekBrains Notes</string>
+    <string name="new_note_title">ColorNote editor</string>
+
+    <string name="stub1">Geekbrains + Kotlin forever</string>
+    <string name="stub2">Я Kotlin бы выучил только за то, что на нем разрабатывал Вортон!</string></resources>

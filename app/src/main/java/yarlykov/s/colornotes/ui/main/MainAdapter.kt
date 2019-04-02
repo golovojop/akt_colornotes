@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import yarlykov.s.colornotes.R
 import yarlykov.s.colornotes.data.entity.Note
+import yarlykov.s.colornotes.extensions.getColorId
 
-class MainAdapter : RecyclerView.Adapter<NoteViewHolder>() {
+class MainAdapter(val onItemClick: ((note: Note) -> Unit)? = null) : RecyclerView.Adapter<MainAdapter.NoteViewHolder>() {
 
     var notes: List<Note> = listOf()
         set (value) {
@@ -31,19 +32,22 @@ class MainAdapter : RecyclerView.Adapter<NoteViewHolder>() {
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int): Unit {
         holder.bind(notes[position])
     }
-}
 
-/**
- * Класс, который прикрепляется фреймворком к отдельному элементу списка,
- * чтобы иметь возможность быстро получать доступ к отдельным View этого
- * элемента.
- */
-class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    private val title = itemView.findViewById<TextView>(R.id.title)
-    private val body = itemView.findViewById<TextView>(R.id.body)
-    fun bind(note: Note) {
-        title.text = note.title
-        body.text = note.note
-        itemView.setBackgroundColor(note.color)
+    /**
+     * Класс, который прикрепляется фреймворком к отдельному элементу списка,
+     * чтобы иметь возможность быстро получать доступ к отдельным View этого
+     * элемента.
+     */
+    inner class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val title = itemView.findViewById<TextView>(R.id.title)
+        private val body = itemView.findViewById<TextView>(R.id.body)
+
+        fun bind(note: Note) {
+            title.text = note.title
+            body.text = note.text
+            itemView.setBackgroundColor(note.color.getColorId(note.color))
+            itemView.setOnClickListener{ onItemClick?.invoke(note) }
+        }
     }
 }
+
