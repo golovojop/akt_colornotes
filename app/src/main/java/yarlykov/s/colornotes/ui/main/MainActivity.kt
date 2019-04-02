@@ -19,26 +19,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Чтобы поставить свой ToolBar нужно в стиле выбрать тему без Toolba'a
+        // TODO: Чтобы поставить свой ToolBar нужно в стиле выбрать тему без Toolba'a
         setSupportActionBar(toolbar_main)
 
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         adapter = MainAdapter(::openNoteScreen)
 
-        rv_noteList.layoutManager = GridLayoutManager(this, 2)
 
-        /**
-         * Котлин позволяет обойтись без findViewById<>() и напрямую
-         * обратиться к View
-         */
-        rv_noteList.adapter = adapter
-
-        /**
-         * Подписаться на изменение источника списка Note
-         */
+        // TODO: В этом месте адаптер инициализируется данными
         viewModel.viewState().observe(this, Observer<MainViewState> { t ->
             t?.let { adapter.notes = it.notes }
         })
+
+        // TODO: Котлин позволяет обойтись без findViewById<>() и напрямую обратиться к View
+        rv_noteList.adapter = adapter
+        rv_noteList.layoutManager = GridLayoutManager(this, 2)
     }
 
     private fun openNoteScreen(note: Note?) {

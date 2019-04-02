@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import yarlykov.s.colornotes.R
 import yarlykov.s.colornotes.data.entity.Note
-import yarlykov.s.colornotes.data.model.Repository.notes
 import yarlykov.s.colornotes.extensions.getColorInt
 
 class MainAdapter(val onItemClick: ((note: Note) -> Unit)? = null) : RecyclerView.Adapter<MainAdapter.NoteViewHolder>() {
