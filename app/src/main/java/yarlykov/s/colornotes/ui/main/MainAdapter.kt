@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import yarlykov.s.colornotes.R
 import yarlykov.s.colornotes.data.entity.Note
-import yarlykov.s.colornotes.extensions.getColorId
+import yarlykov.s.colornotes.data.model.Repository.notes
+import yarlykov.s.colornotes.extensions.getColorInt
 
 class MainAdapter(val onItemClick: ((note: Note) -> Unit)? = null) : RecyclerView.Adapter<MainAdapter.NoteViewHolder>() {
 
@@ -18,11 +19,11 @@ class MainAdapter(val onItemClick: ((note: Note) -> Unit)? = null) : RecyclerVie
             notifyDataSetChanged()
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.item_note, parent, false)
-        return NoteViewHolder(view)
-    }
+    // Взывается из RecyclerView при подключении адаптера
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)  =
+        NoteViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_note, parent, false)
+        )
 
     override fun getItemCount() = notes.size
 
@@ -39,13 +40,13 @@ class MainAdapter(val onItemClick: ((note: Note) -> Unit)? = null) : RecyclerVie
      * элемента.
      */
     inner class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val title = itemView.findViewById<TextView>(R.id.title)
-        private val body = itemView.findViewById<TextView>(R.id.body)
+        private val tvTitle = itemView.findViewById<TextView>(R.id.title)
+        private val tvBody = itemView.findViewById<TextView>(R.id.body)
 
-        fun bind(note: Note) {
-            title.text = note.title
-            body.text = note.text
-            itemView.setBackgroundColor(note.color.getColorId(note.color))
+        fun bind(note: Note)  = with(note) {
+            tvTitle.text = title
+            tvBody.text = text
+            itemView.setBackgroundColor(note.background.getColorInt(itemView.context))
             itemView.setOnClickListener{ onItemClick?.invoke(note) }
         }
     }

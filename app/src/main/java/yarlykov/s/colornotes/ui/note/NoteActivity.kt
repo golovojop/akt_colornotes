@@ -11,7 +11,8 @@ import android.view.MenuItem
 import yarlykov.s.colornotes.R
 import yarlykov.s.colornotes.data.entity.Note
 import yarlykov.s.colornotes.extensions.format
-import yarlykov.s.colornotes.extensions.getColorId
+import yarlykov.s.colornotes.extensions.getColorInt
+import yarlykov.s.colornotes.extensions.getColorInt
 
 
 class NoteActivity : AppCompatActivity() {
@@ -46,13 +47,15 @@ class NoteActivity : AppCompatActivity() {
         supportActionBar?.title = note?.let {
             it.lastChanged.format(DATE_TIME_FORMAT)
         } ?: getString(R.string.new_note_title)
+
+        initView()
     }
 
     private fun initView() {
         note?.apply {
             et_title.setText(title)
             et_body.setText(text)
-            toolbar_note.setBackgroundColor(color.getColorId(color))
+            toolbar_note.setBackgroundColor(background.getColorInt(this@NoteActivity))
         }
     }
 

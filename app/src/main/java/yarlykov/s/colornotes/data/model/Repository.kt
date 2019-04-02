@@ -8,43 +8,43 @@ object Repository {
     val notes = listOf(
         Note(
             UUID.randomUUID().toString(),
-            "Моя первая заметка",
+            "Note WHITE",
             "Kotlin очень краткий, но при этом выразительный язык",
             Note.Color.WHITE
         ),
         Note(
             UUID.randomUUID().toString(),
-            "Моя первая заметка",
+            "Note BLUE",
             "Kotlin очень краткий, но при этом выразительный язык",
             Note.Color.BLUE
         ),
         Note(
             UUID.randomUUID().toString(),
-            "Моя первая заметка",
+            "Note GREEN",
             "Kotlin очень краткий, но при этом выразительный язык",
             Note.Color.GREEN
         ),
         Note(
             UUID.randomUUID().toString(),
-            "Моя первая заметка",
+            "Note PINK",
             "Kotlin очень краткий, но при этом выразительный язык",
             Note.Color.PINK
         ),
         Note(
             UUID.randomUUID().toString(),
-            "Моя первая заметка",
+            "Note RED",
             "Kotlin очень краткий, но при этом выразительный язык",
             Note.Color.RED
         ),
         Note(
             UUID.randomUUID().toString(),
-            "Моя первая заметка",
+            "Note VIOLET",
             "Kotlin очень краткий, но при этом выразительный язык",
             Note.Color.VIOLET
         ),
         Note(
             UUID.randomUUID().toString(),
-            "Моя первая заметка",
+            "Note YELLOW",
             "Kotlin очень краткий, но при этом выразительный язык",
             Note.Color.YELLOW
         )
