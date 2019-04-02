@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import yarlykov.s.colornotes.R
+import yarlykov.s.colornotes.data.entity.Note
+import yarlykov.s.colornotes.ui.note.NoteActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar_main)
 
         viewModel = ViewModelProviders.of( this ). get (MainViewModel:: class . java )
-        adapter = MainAdapter()
+        adapter = MainAdapter(::openNoteScreen)
 
         /**
          * Котлин позволяет обойтись без findViewById<>() и напрямую
@@ -34,5 +36,9 @@ class MainActivity : AppCompatActivity() {
         viewModel.viewState().observe( this , Observer<MainViewState> { t ->
             t?.let { adapter.notes = it.notes }
         })
+    }
+
+    private fun openNoteScreen(note: Note?) {
+        NoteActivity.startNoteActivity(this, note)
     }
 }
