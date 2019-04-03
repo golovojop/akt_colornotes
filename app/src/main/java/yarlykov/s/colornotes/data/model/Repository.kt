@@ -1,11 +1,16 @@
 package yarlykov.s.colornotes.data.model
 
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
 import yarlykov.s.colornotes.data.entity.Note
 import java.util.*
 
 object Repository {
 
-    val notes = listOf(
+    private val notesLiveData = MutableLiveData<List<Note>>()
+
+    // TODO: Mutable List
+    private val notes = arrayListOf(
         Note(
             UUID.randomUUID().toString(),
             "Note WHITE",
@@ -49,4 +54,32 @@ object Repository {
             Note.Color.YELLOW
         )
     )
+
+    init {
+        notesLiveData.value = notes
+    }
+
+    fun getNotes(): LiveData<List<Note>> {
+        return notesLiveData
+    }
+
+    fun saveNote(note: Note) {
+        saveOrReplace(note)
+    }
+
+    // TODO: Работа с итератораи в Котлин:
+    // TODO: https://stackoverflow.com/questions/34608551/in-kotlin-how-do-you-modify-the-contents-of-a-list-while-iterating
+    private fun saveOrReplace(note: Note) {
+
+        notes.listIterator().apply {
+            while(hasNext()){
+                if(next().id == note.id) {
+                    set(note)
+                    return@apply
+                }
+            }
+            notes.add(note)
+        }
+        notesLiveData.value = notes
+    }
 }

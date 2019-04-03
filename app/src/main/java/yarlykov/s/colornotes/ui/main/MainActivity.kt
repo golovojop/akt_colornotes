@@ -27,13 +27,16 @@ class MainActivity : AppCompatActivity() {
 
 
         // TODO: В этом месте адаптер инициализируется данными
-        viewModel.viewState().observe(this, Observer<MainViewState> { t ->
-            t?.let { adapter.notes = it.notes }
+        viewModel.viewState().observe(this, Observer<MainViewState> { it ->
+            it?.let { adapter.notes = it.notes }
         })
 
         // TODO: Котлин позволяет обойтись без findViewById<>() и напрямую обратиться к View
         rv_noteList.adapter = adapter
         rv_noteList.layoutManager = GridLayoutManager(this, 2)
+
+        // TODO: При нажатии на кнопку запускаем активити созданиязаметки
+        fab.setOnClickListener{openNoteScreen(null)}
     }
 
     private fun openNoteScreen(note: Note?) {
