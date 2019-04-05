@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "277808491763",
+    "firebase_url": "https://colornotes-d4f0a.firebaseio.com",
+    "project_id": "colornotes-d4f0a",
+    "storage_bucket": "colornotes-d4f0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277808491763:android:5df3f29110b71019",
+        "android_client_info": {
+          "package_name": "yarlykov.s.colornotes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTpFvKQ54dSQ0QmdX9p-H-vv1TJfdDhaU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "277808491763-b7pg89esutgm8fm37mten9mdkb8ocgtj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
