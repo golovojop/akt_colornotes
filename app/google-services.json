@@ -13,7 +13,16 @@
           "package_name": "yarlykov.s.colornotes"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "277808491763-s7juv81vn535tu6rdpr5c65peihndro4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "yarlykov.s.colornotes",
+            "certificate_hash": "2c109cbdc995b178642565e1d716d6a5c2ebada0"
+          }
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBTpFvKQ54dSQ0QmdX9p-H-vv1TJfdDhaU"
