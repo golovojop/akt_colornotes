@@ -3,6 +3,7 @@ package yarlykov.s.colornotes.data.provider
 import android.arch.lifecycle.LiveData
 import yarlykov.s.colornotes.data.entity.Note
 import yarlykov.s.colornotes.data.model.NoteResult
+import yarlykov.s.colornotes.data.model.User
 
 /**
  * TODO: Прокладка между ViewModel и источником данных.
@@ -14,4 +15,5 @@ interface RemoteDataProvider {
     fun subscribeToAllNotes (): LiveData<NoteResult>
     fun getNoteById (id: String ): LiveData<NoteResult>
     fun saveNote (note: Note) : LiveData<NoteResult>
+    fun getCurrentUser (): LiveData<User?>
 }
